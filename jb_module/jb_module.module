@@ -1,0 +1,17 @@
+<?php
+
+function jb_module_theme($existing, $type, $theme, $path) {
+
+    return [
+        'job_list' => [
+            'render element' => 'children',
+            'template' => 'job-list',
+            'path' => $path . '/templates',
+            'variables' => [
+                'jobs' => [],
+                'form' => [],
+            ]
+        ]
+    ];
+
+}
