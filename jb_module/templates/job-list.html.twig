@@ -1,0 +1,58 @@
+<div>
+    {{ form }}
+</div>
+
+<section>
+    {# jobs container #}
+    <div class="flex flex-col items-center md:flex-row justify-center flex-wrap">
+        {% for job in jobs %}
+             {# job card #}
+            <div class="w-11/12 h-auto md:w-1/4 shadow-lg rounded-md p-8 m-6 dark:bg-gray-800">
+                {# company logo #}
+                <a href="{{ path('entity.node.canonical', {'node': job.id}) }}">
+                    <div class="w-16 h-14 rounded-lg flex justify-center items-center -translate-y-10 jb-image">
+                        <img src={{ job.company_logo }} alt={{ job.company_name }} />
+                    </div>
+                    {# end company logo #}
+                    {# job type #}
+                    <div class="-translate-y-4">
+                        <p class="text-gray-500 text-bold">
+                            {{ job.job_posted_date }}
+                            |
+                            {{ job.job_type }}
+                        </p>
+                    </div>
+                    {# end job type #}
+                    {# position #}
+                    <div>
+                        <p class="text-2xl text-bold dark:text-white">
+                            {{ job.position_title }}
+                        </p>
+                    </div>
+                    {# end position #}
+                    {# company name #}
+                    <div class="mt-4">
+                        <p class="text-gray-500">
+                            {{ job.company_name }}
+                        </p>
+                    </div>
+                    {# end company name #}
+                    {# company location #}
+                    <div class="mt-10">
+                        <p class="text-indigo-500">
+                            {{ job.company_location }}
+                        </p>
+                    </div>
+                    {# end company location #}
+                </a>
+            </div>
+            {# end of job card #}
+        {% endfor %}
+    </div>
+    <div class="mt-5 flex justify-center">
+        <button class="bg-indigo-500 p-4 w-44 text-white rounded-md hover:opacity-75 dark:text-white" type="button">
+            Load More        
+        </button>
+    </div>
+    {# end of jobs container #}
+</section>
