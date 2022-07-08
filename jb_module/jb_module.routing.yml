@@ -1,0 +1,7 @@
+jb_module.example:
+  path: '/devjobs'
+  defaults:
+    _controller: '\Drupal\jb_module\Controller\JobsController::content'
+    _title: ''
+  requirements:
+    _permission: 'access content'
